@@ -9,3 +9,5 @@ void print_list(struct song_node * node);
 struct song_node * insert_front(struct song_node * node, char * song, char * creator);
 
 struct song_node * free_list(struct song_node * node);
+
+struct song_node * insert_alpha(struct song_node * node, char * song, char * creator);
