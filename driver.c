@@ -18,7 +18,7 @@ int main(){
   print_list(first);
   first = insert_front(first, "Smooth", "Santana" );
   print_list(first);
-  first = insert_front(first, "Apolize" ,"Timbaland");
+  first = insert_front(first, "Apologize" ,"Timbaland");
   print_list(first);
 
   printf("Testing print_list:\n");
