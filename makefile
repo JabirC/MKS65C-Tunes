@@ -1,11 +1,17 @@
-all: LinkedList.o tests.o
-		gcc tests.o LinkedList.o
+all: LinkedList.o driver.o Library.o
+		gcc driver.o LinkedList.o Library.o
 
 LinkedList.o: LinkedList.c LinkedList.h
 		gcc -c LinkedList.c
 
-tests.o: tests.c LinkedList.h
-		gcc -c tests.c
+Library.o: Library.c Library.h LinkedList.h
+		gcc -c Library.c
+
+driver.o: driver.c Library.h
+		gcc -c driver.c
 
 run:
 		./a.out
+
+clean:
+		rm *.o
