@@ -5,7 +5,7 @@ int main(){
 
   struct song_node *first;
   first=NULL;
-
+  printf("==================================\n\n");
   printf("LINKED LIST TESTS\n");
   printf("==================================\n\n");
 
@@ -112,7 +112,135 @@ int main(){
   printf("\n\n" );
 
   printf("==================================\n\n");
-  printf("MUSIC LIBRARY TESTS (COMING SOON)\n\n");
+  printf("MUSIC LIBRARY TESTS \n\n");
   printf("==================================\n\n");
+  printf("Testing findIndex\n");
+  printf("Index of 'E' in alphabet : ");
+  char alpha[] = "E";
+  printf("%d\n" , findIndex(*alpha) - 1);
+  strcpy(alpha, "T");
+  printf("Index of 'T' in alphabet : ");
+  printf("%d\n" , findIndex(*alpha) - 1);
+  strcpy(alpha, "Z");
+  printf("Index of 'Z' in alphabet : ");
+  printf("%d\n" , findIndex(*alpha) - 1);
+
+  printf("==================================\n\n");
+  printf("Testing add    +   list_lib\n");
+  struct library * libra = NULL;
+  printf("Adding [ Eminem : Venom ]    : \n");
+  libra = add(libra, "Venom", "Eminem");
+  list_lib(libra);
+  printf("Adding [ Adele : Hello ]    : \n");
+  libra = add(libra, "Hello", "Adele");
+  list_lib(libra);
+  printf("Adding [ Real McCoy  : Another Night ]    : \n");
+  libra = add(libra, "Another Night", "Real McCoy");
+  list_lib(libra);
+  printf("Adding [ Santana  : Smooth ]    : \n");
+  libra = add(libra, "Smooth", "Santana");
+  list_lib(libra);
+  printf("Adding [ Timbaland  : Apologize ]    : \n");
+  libra = add(libra, "Apologize", "Timbaland");
+  list_lib(libra);
+
+  printf("==================================\n\n");
+  printf("Testing song_search\n");
+  printf("Searching for [ Real McCoy  : Another Night ] : ");
+  search = song_search(libra, "Another Night" , "Real McCoy");
+  printf("Found : " );
+  print_list(search);
+  printf("Searching for [ Adele : Hello ] : ");
+  search = song_search(libra, "Hello" , "Adele");
+  printf("Found : " );
+  print_list(search);
+  printf("Searching for [ Timbaland  : Apologize ] : ");
+  search = song_search(libra, "Apologize" , "Timbaland");
+  printf("Found : " );
+  print_list(search);
+  printf("Searching for [ Chain Smoker  : Closer ] : ");
+  search = song_search(libra, "Closer" , "Chain Smoker");
+  printf("Nothing Found : \n" );
+  print_list(search);
+
+
+  printf("==================================\n\n");
+  printf("Testing artist_search\n");
+  printf("Searching for [ Real McCoy ] : ");
+  search = artist_search(libra, "Real McCoy");
+  printf("Found : " );
+  print_list(search);
+
+  printf("Searching for [ Eminem ] : ");
+  search = artist_search(libra, "Eminem");
+  printf("Found : " );
+  print_list(search);
+
+
+  printf("Searching for [ Santana ] : ");
+  search = artist_search(libra, "Santana");
+  printf("Found : " );
+  print_list(search);
+
+  printf("Searching for [ Demi Lovato ] : ");
+  search = artist_search(libra, "Demi Lovato");
+  printf("Nothing Found : \n" );
+  print_list(search);
+
+  printf("==================================\n\n");
+  printf("Testing list_letter\n");
+  libra = add(libra , "What do You mean" , "Alfonse");
+  printf("Listing all under A\n");
+  list_letter(libra, "A");
+
+  printf("Listing all under S\n");
+  list_letter(libra, "S");
+
+  printf("Listing all under T\n");
+  list_letter(libra, "T");
+
+  printf("==================================\n\n");
+  printf("Testing list_artist\n\n");
+  libra = add(libra, "Not Afraid" , "Eminem");
+  libra = add(libra, "Rap God", "Eminem");
+  libra = add(libra, "All I Ask", "Adele");
+  libra = add(libra, "Skyfall", "Adele");
+  printf("Entire Library: \n");
+  list_lib(libra);
+  printf("Listing all songs by Eminem : \n");
+  list_artist(libra, "Eminem");
+  printf("Listing all songs by Adele : \n");
+  list_artist(libra, "Adele");
+
+  printf("==================================\n\n");
+  printf("Testing list_lib\n");
+  list_lib(libra);
+
+  printf("==================================\n\n");
+  printf("Testing shuffle\n");
+  printf("Printing at most 10 random songs  : \n");
+  shuffle(libra);
+
+
+  printf("==================================\n\n");
+  printf("Testing delete_song\n");
+  printf("Current state of Library :\n");
+  list_lib(libra);
+  printf("Deleting [ Eminem : Rap God ]\n");
+  delete_song(libra , "Rap God" , "Eminem");
+  printf("Deleting [ Adele : Hello ]\n");
+  delete_song(libra , "Hello" , "Adele");
+  printf("Deleting [ Timbaland : Apologize ]\n");
+  delete_song(libra , "Apologize" , "Timbaland");
+  printf("Library after deletions  :\n");
+  list_lib(libra);
+
+
+  printf("==================================\n\n");
+  printf("Testing clear_lib\n");
+  list_lib(libra);
+  printf("Clearing Library \n");
+  clear_lib(libra);
+  list_lib(libra);
   return 0;
 }

@@ -86,8 +86,8 @@ void list_lib(struct library * lib){
 
 void shuffle(struct library * lib){
      int i;
-     printf("Printing random songs out of Library(may repeat based on size of Library)\n");
-     for(i = 0; i <10; i++){
+     printf("Printing random songs out of Library\n");
+     for(i = 0; i <5; i++){
          int arrayIndex = rand()%27;
          while(!(*((lib -> tables) + arrayIndex)) && arrayIndex < 26){
            arrayIndex++;
